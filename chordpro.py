@@ -28,8 +28,8 @@ def buildChords():
     mod are m,7,2,sus
     '''
     chords = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-    suffix = ['','#', 'maj', 'b']
-    mod = ['', 'm', 'sus', '7', '2']
+    suffix = ['','#', 'maj', 'b', 'sus']
+    mod = ['', 'm', '7', '2', '4']
 
     # important to add to a new variable
     # to avoid an infinite loop.
@@ -102,10 +102,11 @@ def main():
     #print(chords)
     with open(filepath) as fp:
         for line in fp:
-            if line.isspace():
+            #print('raw: ', line.rstrip(), len(line.rstrip()))
+            if line.rstrip().isspace() or len(line.rstrip()) == 1:
                 if a != []:
                     printChords(a,line) 
-                a = []
+                #a = []
                 continue
             if isChordLine(line,chords):
                 #print(line.rstrip(), ' is chordline: ', a)
