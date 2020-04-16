@@ -102,10 +102,12 @@ def main():
     #print(chords)
     with open(filepath) as fp:
         for line in fp:
-            #print('raw: ', line.rstrip(), len(line.rstrip()))
-            if line.rstrip().isspace() or len(line.rstrip()) == 1:
+            #print('raw: ', line.rstrip(), len(line))
+            if line.rstrip().isspace() or len(line) <= 2:
                 if a != []:
                     printChords(a,line) 
+                else:
+                    print()
                 #a = []
                 continue
             if isChordLine(line,chords):
