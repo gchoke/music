@@ -62,10 +62,10 @@ def isChordLine(line,chords):
                 for t in srch:
                     if t not in chords:
                         ChordLine = False
-                        break
+                        return False
             else:
                 ChordLine = False # one non-chord and we're out!
-                break
+                return False
     #print(data)
     
     return ChordLine
@@ -77,14 +77,14 @@ def printChords(a,line):
     instrumental interlude. In those cases, this function will simply 
     print out the chords with square brackets around them. 
     '''
-    a.sort(key=itemgetter(1),reverse=True) # reverse sort by loc
+    #a.sort(key=itemgetter(1),reverse=True) # reverse sort by loc
     line = ''
     for item in a:
         c = item[0]
         loc = item[1]
         whitespace = ''
-        #if loc > len(line):
-        #    whitespace = (loc-len(line))*' '
+        if loc > len(line):
+            whitespace = (loc-len(line))*' '
         l = line.rstrip()+whitespace
         r = '' # put newline back on the line
         line = l+'['+c+']'+r  # insert 
@@ -124,13 +124,13 @@ def main():
                 if a != []: # handle successive chord lines 
                     printChords(a,line)
                     a = []
-                tokens = line.split()
-                for c in tokens:
-                    key = r"\b%s\b"%(c) 
-                    iter = re.finditer(key, line, re.IGNORECASE)
-                    indices = [m.start(0) for m in iter]
-                    for loc in indices: # loc is the byte location of a chord
-                        a.append((c,loc))
+
+                key = r'\S+' # any non whitespace
+                iter = re.finditer(key, line)
+                res = line.split()
+                indices = [m.start(0) for m in iter]
+                for i,loc in enumerate(indices): # loc is the byte location
+                    a.append((res[i],loc))
                 #print('chords found = ',a)
             else: # insert any saved chords into lyric line
                 #print(line.rstrip(), ' is not chordline: ', a)
