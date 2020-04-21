@@ -1,0 +1,66 @@
+Spanish Pipedream  
+John Prine , 1971
+http://www.youtube.com/watch?v=BofvfVPFbiM
+
+For Bass or Travis picking:
+  play "G" chord as: G ,  G/B , repeat once
+  play "C" chord as: C ,  C/G , repeat once
+  play "D" chord as: D ,  D/A , repeat once
+
+[Chords]
+G   320003
+G/B x20003
+C   x32010
+C/G 3x2010
+D   xx0232
+D/A x00232
+
+G6/D xx0000
+
+[Intro]
+[G][G6/D][G][G6/D]
+[G][G6/D][G]
+[Verse 1]
+[G6/D]She was a [G]level headed dancer on the [C]road to alcohol.
+And [D7]I was just a soldier on my way to Montre[G]al.
+Well she [G]pressed her chest against me,
+About the [C]time the jukebox broke.
+Yeah, she [D7]gave me a peck on the back of the neck,
+And these are the words she [G]spoke.
+
+[Chorus 1]
+Blow up your [G]T.V.. Throw away your paper.
+Go to the [D]country.  Build you a [G]home.
+Plant a little [G]garden.  Eat a lotta peaches.
+Try an find [D]Jesus,  on your [G]own.
+
+[Verse 2]
+Well, I [G]sat there at the table, and I [C]acted real naive.
+For I [D7]knew that topless lady, had something up her s[G]leeve.
+Well, she [G]danced around the bar room, and she [C]did the hoochy-coo.
+Yeah she [D7]sang her song all night long, tellin' me what to d[G]o.
+
+[Chorus 2]
+Blow up your [G]T.V.  Throw away your paper.
+Go to the [D]country.  Build you a [G]home.
+Plant a little [G]garden.  Eat a lot of peaches.
+Try an' find [D]Jesus, on your [G]own.
+
+[Solo]
+[D]    [G]    [D]    [G]
+[C]    [G]    [D]    [G]
+[Verse 3]
+Well, [G]I was young and hungry, and a[C]bout to leave that place.
+When [D7]just as I was leavin', well she looked me in the [G]face.
+I said "[G]You must know the answer".  She said "[C]No but I'll give it a try".
+And to [D7]this very day, we've been livin' our way. 
+And here is the reason [G]why.
+
+[Chorus 3]
+We blew up our [G]T.V.  Threw away our paper.
+Went to the [D]country, built us a [G]home.
+Had a lot of [G]children, fed 'em on peaches.
+They all found [D]Jesus, on their [G]own. [C]  [G]
+
+[Tag]
+               [D]             [G]  [C][G]
