@@ -30,13 +30,12 @@ def buildChords():
     chords = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
     suffix = ['','#', 'maj', 'b', 'sus']
     mod = ['', 'm', '7', '2', '4', '6']
-    concat = ['/']
 
-    # important to add to a new variable
+    # Important to add to a new variable name
     # to avoid an infinite loop.
     chord_plus = []
     for c in chords:
-        for s in suffix:
+        for s in suffix: # The '' suffix maintains the one sylable chords
             chord_plus.append(c+s)
     #print(chord_plus)
 
@@ -56,15 +55,23 @@ def isChordLine(line,chords):
     data = line.split()
     for str in data:
         if str not in chords:
+            # Check to see that valid chords are on either
+            # side of the '/'. This is a more general solution
+            # than the quick fix of just adding G6/D to chords.
             if '/' in str:
                 # looking for pattern such as G6/D
                 srch = str.split('/')
                 for t in srch:
                     if t not in chords:
-                        ChordLine = False
+                        # no chord with this '/'
                         return False
             else:
-                ChordLine = False # one non-chord and we're out!
+                # A non-chord was found so classify line as "non-chord"
+                # Most likely it's just a lyric line.
+                # Occasionally an unexpected chord shows up like
+                # that G6/D from Spanish Pipedream. James Taylor
+                # uses a lot of those modified chord patterns...
+                # so do check the output. Adjust this code as needed.
                 return False
     #print(data)
     
@@ -77,7 +84,6 @@ def printChords(a,line):
     instrumental interlude. In those cases, this function will simply 
     print out the chords with square brackets around them. 
     '''
-    #a.sort(key=itemgetter(1),reverse=True) # reverse sort by loc
     line = ''
     for item in a:
         c = item[0]
