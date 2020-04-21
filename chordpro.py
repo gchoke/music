@@ -24,12 +24,13 @@ import re as re
 def buildChords():
     '''
     return an enhanced list of possible chords 
-    suffix are maj, sharps and flats
+    suffix are maj', sharps and flats
     mod are m,7,2,sus
     '''
     chords = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
     suffix = ['','#', 'maj', 'b', 'sus']
-    mod = ['', 'm', '7', '2', '4']
+    mod = ['', 'm', '7', '2', '4', '6']
+    concat = ['/']
 
     # important to add to a new variable
     # to avoid an infinite loop.
@@ -43,7 +44,6 @@ def buildChords():
     for c in chord_plus:
         for m in mod:
             chord_plus_plus.append(c+m)
-    #print(chord_plus_plus)
 
     return chord_plus_plus
 
@@ -56,8 +56,16 @@ def isChordLine(line,chords):
     data = line.split()
     for str in data:
         if str not in chords:
-            ChordLine = False # one non-chord and we're out!
-            break
+            if '/' in str:
+                # looking for pattern such as G6/D
+                srch = str.split('/')
+                for t in srch:
+                    if t not in chords:
+                        ChordLine = False
+                        break
+            else:
+                ChordLine = False # one non-chord and we're out!
+                break
     #print(data)
     
     return ChordLine
@@ -116,14 +124,13 @@ def main():
                 if a != []: # handle successive chord lines 
                     printChords(a,line)
                     a = []
-                for c in chords:
-                    #print(c)
-                    key = r"\b%s\b"%(c) # chord separated by whitespace
+                tokens = line.split()
+                for c in tokens:
+                    key = r"\b%s\b"%(c) 
                     iter = re.finditer(key, line, re.IGNORECASE)
                     indices = [m.start(0) for m in iter]
                     for loc in indices: # loc is the byte location of a chord
-                            a.append((c,loc))
-
+                        a.append((c,loc))
                 #print('chords found = ',a)
             else: # insert any saved chords into lyric line
                 #print(line.rstrip(), ' is not chordline: ', a)
